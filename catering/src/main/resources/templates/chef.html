@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Dettagli chef</title>
+</head>
+<body>
+	<div>
+		<h4>Dettagli chef</h4>
+	<div>
+	<span th:text="${chef.nome}">Paolo</span>
+	<span th:text="${chef.cognome}">Rossi</span>
+	<span th:text="${chef.nazionalita}">Italia</span>
+	<div>
+			<ul>
+				<li th:each="buffet : ${chef.listaBuffet}">
+					<a th:href="@{'/public/buffet/'+${buffet.id}}"
+					th:text="${buffet.nome}">nome buffet</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	<footer><a href="/">Home</a></footer>
+</body>
+</html>

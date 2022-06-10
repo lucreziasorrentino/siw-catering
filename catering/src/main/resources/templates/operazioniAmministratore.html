@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Dettagli buffet</title>
+</head>
+<body>
+<form th:action="@{/buffet}" method="post" th:object="${buffet}">
+	<div>
+		<h4>Operazioni</h4>
+		<div><a th:href="@{/chefForm}"/>Inseriscii Chef</a></div>	<!-- si riferisce a @GetMapping("/personaForm") public String getPersona(Model model)... in PersonaController -->
+		<div><a th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
+		<div><a th:href="@{/chef}"/>Elimina chef</a></div>
+		<div><a th:href="@{/piattoForm}"/>Inserisci piatto</a></div>
+		<div><a th:href="@{/piatto}"/>Vedi tutti i piatti</a></div>
+		<div><a th:href="@{/chef}"/>Elimina piatto</a></div>
+		<div><a th:href="@{/buffetForm}"/>Inserisci nuovo buffet</a></div>
+		<div><a th:href="@{/buffet}"/>Vedi tutti i buffet</a></div>
+		<div><a th:href="@{/chef}"/>Elimina buffet</a></div>
+	</div>
+	<div>
+		descrizione: <input type="text" th:field="*{descrizione}"/>
+		<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+	</div>
+	<!--
+	<div>
+		piatti: <input type="text" th:field="*{piatti}" th:href="@{/piattoForm}"/>
+		<div th:if="${#fields.hasErrors('piatti')}" th:errors="*{piatti}"></div>
+	</div> -->
+	<div th:each="piatto: ${piatti}"> seleziona i piatti da inserire nel buffet:
+		<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}">
+		<label for="${piatti}" th:text="${piatto.name}">Nome piatto</label>
+	</div>
+	<div>
+		<a th:href="@{/piattoForm}"/>Inserisci piatto</a>
+	</div>
+	<div><button type="submit">Conferma</button></div>
+</form>
+</body>
+</html>

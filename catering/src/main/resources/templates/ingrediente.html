@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div>
+		<div th:object=${ingrediente}>
+			<span th:text="*{nome}">qui-va-nome</span> 
+			<span th:text="*{origine}">qui-va-origine</span>
+			<span th:text="*{descrizione}">qui-va-descrizione</span>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Demo</title>
+	<link rel="stylesheet" th:href="@{/css/base.css}"> <!-- href="/catering/src/main/resources/static/base.css" -->
+</head>
+<!--
+<body>
+	<div>
+		<h4>Operazioni</h4>
+		<div><a th:href="@{/chefForm}"/>Inseriscii Chef</a></div>	<!-- si riferisce a @GetMapping("/personaForm") public String getPersona(Model model)... in PersonaController -->
+     	<!--<div><a th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
+     	<div><a th:href="@{/eliminaChef}"/>Elimina chef</a></div>
+		<div><a th:href="@{/piattoForm}"/>Inserisci piatto</a></div>
+		<div><a th:href="@{/piatto}"/>Vedi tutti i piatti</a></div>
+		<div><a th:href="@{/buffetForm}"/>Inserisci nuovo buffet</a></div>
+		<div><a th:href="@{/buffet}"/>Vedi tutti i buffet</a></div>
+	</div>
+</body> -->
+
+<body>
+	<div class="menu">
+    	<ul>
+    		<li>hey</li>
+			<li><a href="#" th:href="@{/operazioniAmministratore}">Login amministratore</a></<li>
+        	<li><a href="#" th:href="@{/public/listaBuffet}">Visualizza Buffet</a></<li>
+        	<li><a href="#" th:href="@{/public/listaChef}"/>Visualizza chef</a></</li>
+        	<li><a href="#" th:href="@{/public/piatti}"/>Vedi tutti i piatti</a></li>
+        </ul>
+       </div>
+    <h2>Benvenuto nel nostro servizio catering! </h2>
+			<!--<div><a href="#" th:href="@{/operazioniAmministratore}">Login amministratore</a></div>
+        	<div><a href="#" th:href="@{/buffet}">Visualizza Buffet</a></div>
+        	<div><a href="#" th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
+			<div><a href="#" th:href="@{/piatto}"/>Vedi tutti i piatti</a></div> -->
+			<div><a th:href="@{/admin/chefForm}"/>Inserisci Chef</a></div>
+			<div><a th:href="@{/admin/piattoForm}"/>Inserisci piatto</a></div>
+			<div><a th:href="@{/admin/buffetForm}"/>Inserisci nuovo buffet</a></div>
+			<div><a th:href="@{/admin/ingredienteForm}"/>Inserisci Ingrediente</a></div>
+</body>
+
+</html>

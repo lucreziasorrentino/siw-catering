@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Dettagli chef</title>
+</head>
+<body>
+<form th:action="@{/admin/chefForm}" method="post" th:object="${chef}">
+	<div>
+		nome: <input type="text" th:field="*{nome}"/>
+		<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+	</div>
+	<div>
+		cognome: <input type="text" th:field="*{cognome}"/>
+		<div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+	</div>
+	<div>
+		nazionalita: <input type="text" th:field="*{nazionalita}"/>
+		<div th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></div>
+	</div>
+	<div><button type="submit">Conferma</button></div>
+</form>
+</body>
+</html>
