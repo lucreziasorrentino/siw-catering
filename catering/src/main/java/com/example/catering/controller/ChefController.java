@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.catering.controller.validator.ChefValidator;
 import com.example.catering.model.Chef;
 import com.example.catering.service.ChefService;
 
@@ -22,6 +24,10 @@ public class ChefController {
 	@Autowired
 	private ChefService chefService;
 
+	@Autowired
+	private ChefValidator chefValidator;
+
+	
 	@PostMapping("/admin/chefForm")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
 		if(!bindingResult.hasErrors()) {
@@ -63,6 +69,35 @@ public class ChefController {
 		chefService.deleteById(id);
 		model.addAttribute("listaChef", chefService.findAll());
 		return "listaChef.html";
+	}
+	
+	@GetMapping("/admin/modificaChefForm/{id}")
+	public String getChefForm(@PathVariable Long id, Model model) {
+		model.addAttribute("chef", chefService.findById(id));
+		return "modificaChefForm.html";
+	}
+	
+	@Transactional
+	@PostMapping("/admin/modifica/chef/{id}")
+	public String modificaChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
+		Chef vecchioChef = chefService.findById(id);
+		if (! vecchioChef.equals(chef))
+			this.chefValidator.validate(chef, bindingResults);
+
+		String nextPage;
+		if(!bindingResults.hasErrors()) {
+			vecchioChef.setId(chef.getId());
+			vecchioChef.setNome(chef.getNome());
+			vecchioChef.setCognome(chef.getCognome());
+			vecchioChef.setNazionalita(chef.getNazionalita());
+
+			this.chefService.save(vecchioChef);
+			model.addAttribute("chef", chef);
+			nextPage = "chef.html";
+		} else {
+			nextPage = "modificaChefForm.html";
+		}
+		return nextPage;
 	}
 
 	

@@ -8,8 +8,8 @@
 			<span th:text="*{origine}">qui-va-origine</span>
 			<span th:text="*{descrizione}">qui-va-descrizione</span>
 		</div>
-		<div><a th:href="@{/admin/modificaIngredienteForm}"/>Modifica Ingrediente</a></div>
-		<span><a th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}"/>Elimina ingrediente</a></span>
+		<div><a th:href="@{'/admin/modificaIngredienteForm' + '/' + ${ingrediente.id}}"//>Modifica Ingrediente</a></div>
+		<div><a th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}"/>Elimina ingrediente</a></div>
 	</div>
 </body>
 <footer>

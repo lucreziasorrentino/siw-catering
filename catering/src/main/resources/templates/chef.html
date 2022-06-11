@@ -20,7 +20,8 @@
 			</ul>
 		</div>
 	</div>
-	<span><a th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}"/>Elimina chef</a></span>
+	<div><a th:href="@{'/admin/modificaChefForm' + '/' + ${chef.id}}"//>Modifica chef</a></div>
+	<div><a th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}"/>Elimina chef</a></div>
 	</div>
 	<footer><a href="/">Home</a></footer>
 </body>

@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -74,6 +75,35 @@ public class PiattoController {
 		piattoService.deleteById(id);
 		model.addAttribute("piatti", piattoService.findAll());
 		return "piatti.html";
+	}
+	
+	
+	@GetMapping("/admin/modificaPiattoForm/{id}")
+	public String getPiattoForm(@PathVariable Long id, Model model) {
+		model.addAttribute("piatto", piattoService.findById(id));
+		model.addAttribute("ingredienti", ingredienteService.findAll());
+		return "modificaPiattoForm.html";
+	}
+	
+	@Transactional
+	@PostMapping("/admin/modifica/piatto/{id}")
+	public String modificaPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResults, Model model) {
+			Piatto vecchioPiatto = piattoService.findById(id);
+			if (!vecchioPiatto.equals(piatto))
+				this.piattoValidator.validate(piatto, bindingResults);
+		String nextPage;
+		if(!bindingResults.hasErrors()) {
+			vecchioPiatto.setId(piatto.getId());
+			vecchioPiatto.setNome(piatto.getNome());
+			vecchioPiatto.setDescrizione(piatto.getDescrizione());
+			this.piattoService.save(vecchioPiatto);
+			model.addAttribute("piatto", piatto);
+			nextPage = "piatto.html";
+		} else {
+			model.addAttribute("ingredienti", ingredienteService.findAll());
+			nextPage = "modificaPiattoForm.html";
+		}
+		return nextPage;
 	}
 	
 	
