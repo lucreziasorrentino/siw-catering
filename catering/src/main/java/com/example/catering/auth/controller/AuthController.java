@@ -42,7 +42,7 @@ public class AuthController {
 	public String register (@Valid @ModelAttribute("credentials") Credentials credentials, BindingResult bindingResult, Model model) {
 		String nextPage;
 		if (!bindingResult.hasErrors()) {
-			//credentials.setRole("DEFAULT");
+			//credentials.setRole("DEFAULT"); //decommentare se si vuole bloccare la registrazione di nuovi admin, chi si registra non potrà essere un admin
 			this.credentialsService.saveCredentials(credentials);
 			nextPage = "loginForm.html";
 		} else {

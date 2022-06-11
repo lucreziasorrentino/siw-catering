@@ -66,13 +66,13 @@ public class PiattoController {
 	@GetMapping("/admin/deletePiatto/{id}")
 	public String toDeletePiatto(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("piatto", piattoService.findById(id));
-		return "toDeletePiatto.html";
+		return "eliminaPiatto.html";
 	}
 	
 	@PostMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") Long id, Model model) {
 		piattoService.deleteById(id);
-		model.addAttribute("piatto", piattoService.findAll());
+		model.addAttribute("piatti", piattoService.findAll());
 		return "piatti.html";
 	}
 	

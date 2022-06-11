@@ -9,8 +9,8 @@
 <body>
 	<div>
 		<h4>Operazioni</h4>
-		<div><a th:href="@{/chefForm}"/>Inseriscii Chef</a></div>	<!-- si riferisce a @GetMapping("/personaForm") public String getPersona(Model model)... in PersonaController -->
-     	<!--<div><a th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
+		<div><a th:href="@{/chefForm}"/>Inseriscii Chef</a></div>
+     	<div><a th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
      	<div><a th:href="@{/eliminaChef}"/>Elimina chef</a></div>
 		<div><a th:href="@{/piattoForm}"/>Inserisci piatto</a></div>
 		<div><a th:href="@{/piatto}"/>Vedi tutti i piatti</a></div>
@@ -23,13 +23,14 @@
 	<div class="menu">
     	<ul>
     		<li>hey</li>
-			<li><a href="#" th:href="@{/operazioniAmministratore}">Login amministratore</a></<li>
-        	<li><a href="#" th:href="@{/public/listaBuffet}">Visualizza Buffet</a></<li>
-        	<li><a href="#" th:href="@{/public/listaChef}"/>Visualizza chef</a></</li>
+			<li><a href="#" th:href="@{/admin/operazioniAmministratore}">Login amministratore</a><li>
+        	<li><a href="#" th:href="@{/public/listaBuffet}">Visualizza Buffet</a><li>
+        	<li><a href="#" th:href="@{/public/listaChef}"/>Visualizza chef</a></li>
         	<li><a href="#" th:href="@{/public/piatti}"/>Vedi tutti i piatti</a></li>
+        	<li><a href="#" th:href="@{/register}"/>Registrati</a></li>
         </ul>
        </div>
-    <h2>Benvenuto nel nostro servizio catering! </h2>
+    <h2>Benvenuto nel nostro servizio catering! aaaaaa</h2>
 			<!--<div><a href="#" th:href="@{/operazioniAmministratore}">Login amministratore</a></div>
         	<div><a href="#" th:href="@{/buffet}">Visualizza Buffet</a></div>
         	<div><a href="#" th:href="@{/chef}"/>Vedi tutti gli chef</a></div>
@@ -38,6 +39,8 @@
 			<div><a th:href="@{/admin/piattoForm}"/>Inserisci piatto</a></div>
 			<div><a th:href="@{/admin/buffetForm}"/>Inserisci nuovo buffet</a></div>
 			<div><a th:href="@{/admin/ingredienteForm}"/>Inserisci Ingrediente</a></div>
+			<div><a th:href="@{/admin/modificaIngredienteForm}"/>Modifica Ingrediente</a></div>
+			 <div><a href="#" th:href="@{/admin/ingredienti}"/>Vedi tutti gli ingredienti</a></div>
 </body>
 
 </html>

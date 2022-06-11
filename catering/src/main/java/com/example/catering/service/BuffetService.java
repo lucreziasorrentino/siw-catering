@@ -16,13 +16,11 @@ public class BuffetService {
 	@Autowired
 	private BuffetRepository pr;
 	
-	//ci pensa springboot:
 	@Transactional
-	public void save(Buffet buffet) {	//transazionale 
+	public void save(Buffet buffet) {
 		pr.save(buffet);
 	}
 	
-	//interrogazione non transazionale
 	public Buffet findById(Long id) {
 		return pr.findById(id).get();
 	}

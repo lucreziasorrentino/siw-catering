@@ -62,6 +62,18 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 
+	@GetMapping("/admin/deleteBuffet/{id}")
+	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet", buffetService.findById(id));
+		return "eliminaBuffet.html";
+	}
+	
+	@PostMapping("/admin/deleteBuffet/{id}")
+	public String deleteBuffet(@PathVariable("id") Long id, Model model) {
+		buffetService.deleteById(id);
+		model.addAttribute("listaBuffet", buffetService.findAll());
+		return "listaBuffet.html";
+	}
 	
 	
 }

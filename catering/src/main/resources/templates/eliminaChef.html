@@ -5,6 +5,9 @@
 	<title>Elimina Chef</title>
 </head>
 <body>
-		<a th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}">cancella chef</a>
+		<form method="POST" th:action="@{'/admin/deleteChef' + '/' + ${chef.id}}" th:object="${chef}">
+							<button class="button button1" type="submit">Confirm</button>
+		</form>
+		<a href="error.html" th:href="@{'/public/listaChef'}" th:text="Cancel">Torna indietro</a>
 </body>
 </html>

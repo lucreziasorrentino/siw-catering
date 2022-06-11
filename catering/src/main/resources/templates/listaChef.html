@@ -9,9 +9,10 @@
 		<li th:each="chef : ${listaChef}">
 		<a href="chef.html" th:href="@{'/public/chef' + '/' + ${chef.id}}"
 			th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-		<!-- <a href="chef.html" th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}"
-			th:text="'Elimina ' + ${chef.nome} + ' ' + ${chef.cognome}">Elimina Paolo Rossi</a> -->
 		</li>
 	</ul>
 </body>
+<footer>
+	<a href="/">Home</a>
+</footer>
 </html>
