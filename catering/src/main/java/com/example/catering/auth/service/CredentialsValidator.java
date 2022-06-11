@@ -1,10 +1,12 @@
-package it.uniroma3.siw.siwcateringservice.auth.service;
+package com.example.catering.auth.service;
 
-import it.uniroma3.siw.siwcateringservice.auth.models.Credentials;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+
+import com.example.catering.auth.models.Credentials;
 
 @Component
 public class CredentialsValidator implements Validator {

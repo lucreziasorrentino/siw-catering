@@ -1,10 +1,12 @@
-package it.uniroma3.siw.siwcateringservice.auth.service;
+package com.example.catering.auth.service;
 
-import it.uniroma3.siw.siwcateringservice.auth.models.Credentials;
-import it.uniroma3.siw.siwcateringservice.auth.repository.CredentialsRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.example.catering.auth.models.Credentials;
+import com.example.catering.auth.repository.CredentialsRepository;
 
 import java.util.Optional;
 
@@ -18,7 +20,7 @@ public class CredentialsService {
 	private CredentialsRepository credentialsRepository;
 
 	public Credentials getCredentials(Long id){
-		var p = credentialsRepository.findById(id);
+		Optional<Credentials> p = credentialsRepository.findById(id);
 		if (p.isPresent()) return p.get();
 		return null;
 	}

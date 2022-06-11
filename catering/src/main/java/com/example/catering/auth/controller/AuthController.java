@@ -1,7 +1,6 @@
-package it.uniroma3.siw.siwcateringservice.auth.controller;
+package com.example.catering.auth.controller;
 
-import it.uniroma3.siw.siwcateringservice.auth.models.Credentials;
-import it.uniroma3.siw.siwcateringservice.auth.service.CredentialsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.catering.auth.models.Credentials;
+import com.example.catering.auth.service.CredentialsService;
 
 import javax.validation.Valid;
 

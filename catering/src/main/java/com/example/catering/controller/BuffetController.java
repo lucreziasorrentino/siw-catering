@@ -40,7 +40,6 @@ public class BuffetController {
 		return "buffetForm.html";
 	}
 	
-	//visualizza tutti i buffet
 	@GetMapping("/public/listaBuffet")
 	public String getListaBuffet(Model model) {
 		List <Buffet> listaBuffet = buffetService.findAll();

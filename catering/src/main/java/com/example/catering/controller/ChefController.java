@@ -32,11 +32,11 @@ public class ChefController {
 		return "chefForm.html";
 	}
 	
-	@GetMapping("/public/chef")
-	public String getPersone(Model model) {
+	@GetMapping("/public/listaChef")
+	public String getListaChef(Model model) {
 		List <Chef> listaChef = chefService.findAll();
 		model.addAttribute("listaChef", listaChef);
-		return "listaChef.html";	//restituisce la pagina listaChef.html
+		return "listaChef.html";
 	}
 
 	@GetMapping("/public/chef/{id}")

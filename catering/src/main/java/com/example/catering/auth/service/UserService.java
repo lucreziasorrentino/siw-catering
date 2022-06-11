@@ -1,9 +1,13 @@
-package it.uniroma3.siw.siwcateringservice.auth.service;
+package com.example.catering.auth.service;
 
-import it.uniroma3.siw.siwcateringservice.auth.models.User;
-import it.uniroma3.siw.siwcateringservice.auth.repository.UserRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.catering.auth.models.User;
+import com.example.catering.auth.repository.UserRepository;
 
 
 @Service
@@ -13,7 +17,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public User getUser (Long id) {
-		var p = userRepository.findById(id);
+		Optional<User> p = userRepository.findById(id);
 		if (p.isPresent()) return p.get();
 		return null;
 	}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+    xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Public Home Page - Catering Service </title>
+</head>
+<header>
+    <h1>Login</h1>
+</header>
+
+<body>
+    <div>
+        <div >
+            <form th:action="@{/login}" method="POST">
+                <table>
+                	<tr>
+                            <td>Username:</td>
+                            <td>
+                                <input name="username" type="text" placeholder="username" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td> <input name="password" type="password" placeholder="password" required />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <span><button type="submit">Login</button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <div>
+        <a href="/">Logout </a>
+    </div>
+</footer>
+
+</html>

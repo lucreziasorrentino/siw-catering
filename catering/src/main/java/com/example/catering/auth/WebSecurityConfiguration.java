@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.example.catering.auth.models.Credentials;
+
 //https://www.baeldung.com/spring-security-login
 @Configuration
 @EnableWebSecurity

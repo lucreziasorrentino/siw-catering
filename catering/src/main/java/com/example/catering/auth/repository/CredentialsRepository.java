@@ -1,8 +1,9 @@
-package it.uniroma3.siw.siwcateringservice.auth.repository;
+package com.example.catering.auth.repository;
 
-import it.uniroma3.siw.siwcateringservice.auth.models.Credentials;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import com.example.catering.auth.models.Credentials;
 
 import java.util.Optional;
 
