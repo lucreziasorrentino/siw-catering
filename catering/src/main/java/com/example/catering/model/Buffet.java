@@ -76,7 +76,7 @@ public class Buffet {
 
 	@Override
 	public String toString() {
-		return "Buffet [nome=" + nome + ", chef=" + chef + "]";
+		return nome + ", chef:" + chef;
 	}
 	
 	

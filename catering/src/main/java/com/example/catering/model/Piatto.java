@@ -61,7 +61,7 @@ public class Piatto {
 
 	@Override
 	public String toString() {
-		return "Piatto [nome=" + nome + "]";
+		return nome;
 	}
 
 

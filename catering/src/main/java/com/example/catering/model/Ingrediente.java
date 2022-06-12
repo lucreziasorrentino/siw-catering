@@ -56,7 +56,7 @@ public class Ingrediente {
 
 	@Override
 	public String toString() {
-		return "Ingrediente [nome=" + nome + "]";
+		return nome;
 	}
 	
 	

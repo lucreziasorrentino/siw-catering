@@ -8,7 +8,7 @@
 	<ul>
 		<li th:each="buffet : ${listaBuffet}">
 		<a href="buffet.html" th:href="@{'/public/buffet' + '/' + ${buffet.id}}"
-			th:text="${buffet.nome} + ' ' + ${buffet.descrizione} + ' ' + ${buffet.piatti}">Primo buffet Vegetariano</a>
+			th:text="${buffet.nome} + ': ' + ${buffet.descrizione} + ', con:' + ${buffet.piatti}">Primo buffet Vegetariano</a>
 		</li>
 	</ul>
 </body>

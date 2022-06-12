@@ -73,7 +73,7 @@ public class Chef {
 
 	@Override
 	public String toString() {
-		return "Chef [nome=" + nome + ", cognome=" + cognome + "]";
+		return nome + cognome;
 	}
 	
 	
