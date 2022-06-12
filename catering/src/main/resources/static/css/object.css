@@ -5,72 +5,60 @@ body {
     color: #876240;
  }
 /********************************************Container and items**************************************************/
-#container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
+div#container {
+	display: flex; /*i prossimi container sono in colonna*/
+	flex-direction: column; /*gli item sono in colonna*/
 	align-items: center;
+
 }
-.imageIndex{
-	top:0;
-	height: 500px;
-	width: 100%;/*1250px; */
-	margin-bottom: 0%;
+nav.columnItems{ /*è figlio di container e genitore di rowItems*/
+	margin-bottom: 2%;
+	width: 500px;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 0%;
+	display: flex;
+}
+div.columnItems{
+	background-color:  #D9D0C7;
+	margin-bottom: 2%;
+	width: 500px;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 0%;
+	display: flex;
 }
 nav.rowItems{
-	margin-left: 15%;
-	margin-bottom: 10%;
-	padding-right: 5%;
-	width: 800px;
-	display: flex;
+	margin-top: 80px;
 	background-color: #D9D0C7;
-	justify-content: flex-start;
-	align-items: center;
-	border-radius: 0%;
 }
-.imageItems{
-	width: 350px;
-    height: 350px;
-	border-radius: 0%;
-	margin-left: 50px;
-	margin-right: 100px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-.imageItemsLink{
-	width: 350px;
-    height: 350px;
-	border-radius: 0%;
-	margin-left: 50px;
-	margin-right: 100px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-.imageItemsLink:hover{
-	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-	opacity: 0.5;
+img{
+	width: 100px;
+	height: 110px;
+	padding-bottom: 10%;
 }
 p.title{
+	margin-top: 2%;
 	font-family: 'Brush Script MT', cursive;
 	color: #A68572;
 	font-size: 50px;
 	text-align: center;
 }
-.responsive {
-	padding: 0 6px;
-	float: left;
-	width: 24.99999%;
-  }
-  
-  @media only screen and (max-width: 700px){
-	.responsive {
-	  width: 49.99999%;
-	  margin: 6px 0;
-	}
-  }
-  
-  @media only screen and (max-width: 500px){
-	.responsive {
-	  width: 100%;
-	}
-  }
+div.columnItemsLink{
+		background-color:  #D9D0C7;
+		margin-bottom: 2%;
+		width: 500px;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		border-radius: 0%;
+		display: flex;
+}
+div.columnItemsLink a:hover{ /*da sistemareeee*/
+	background-color: red;
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+	opacity: 0.5;
+}
+

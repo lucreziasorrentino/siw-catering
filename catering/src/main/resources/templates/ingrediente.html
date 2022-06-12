@@ -14,7 +14,7 @@
 					<ul>
 						<li><a href="#" th:href="@{/admin/operazioniAmministratore}">Login amministratore</a><br>
 						<a href="#" th:href="@{/register}">Registrati</a><br>
-							<a th:href="@{/admin/chefForm}">Inserisci Chef</a><br>
+						<a th:href="@{/admin/chefForm}">Inserisci Chef</a><br>
 						<a th:href="@{/admin/piattoForm}">Inserisci piatto</a><br>
 						<a th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
 						<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a></li>
@@ -33,22 +33,25 @@
 					<a href="#" th:href="@{/public/listaChef}">Il nostro team</a>
 				</li>
 				<li>
-					<a href="#" th:href="/">Home</a>
+					<a href="/" th:href="/">Home</a>
 				</li>
 			</ul>
 		</div>
-		<p class="title">Benvenuto nel nostro servizio catering!</p>
-		  
+		<nav class="columnItems">
+			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/pancake.jpg?raw=true}" src="/static/img/pancake.jpg"></nav>
+			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/cake.jpg?raw=true}" src="/static/img/cake.jpg"></nav>
+			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/macaron.jpg?raw=true}" src="/static/img/macaron.jpg"></nav>
+			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/cake bears.jpg?raw=true}" src="/static/img/cake bears.jpg"></nav>
+		</nav>
+		<p class="title">Ecco il piatto selezionato:</p>
 		<div th:object=${ingrediente}>
-			<nav class="rowItems" th:text="*{nome}">qui-va-nome</nav> 
-			<nav class="rowItems" th:text="*{origine}">qui-va-origine</nav>
-			<nav class="rowItems" th:text="*{descrizione}">qui-va-descrizione</nav>
-		</div>
-		<div><a th:href="@{'/admin/modificaIngredienteForm' + '/' + ${ingrediente.id}}">Modifica Ingrediente</a></div>
-		<div><a th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}">Elimina ingrediente</a></div>
+			<div class="columnItems" th:text="*{nome}">qui-va-nome</div> 
+			<div class="columnItems" th:text="*{origine}">qui-va-origine</div>
+			<div class="columnItems" th:text="*{descrizione}">qui-va-descrizione</div>
+			<br>
+			<div class="columnItemsLink" a href="#" th:href="@{'/admin/modificaIngredienteForm' + '/' + ${ingrediente.id}}">Modifica Ingrediente</a></div>
+			<div class="columnItemsLink" a href="#" th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}">Elimina ingrediente</a></div>
+	</div>
 	</div>
 </body>
-<footer>
-	<a href="/">Home</a>
-</footer>
 </html>
