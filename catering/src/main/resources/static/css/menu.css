@@ -1,0 +1,55 @@
+body {
+    font-family: serif;
+    color: #876240;
+ }
+div#menu ul
+{	
+	position: fixed; /*rimane anche se scorri la pagina in giù*/
+	margin: 0;
+	padding: 0;
+	list-style-type: none; /* Stile dei punti della lista */
+	right: 1%; /*è a destra*/
+}
+div#menu li
+{
+	float: right;
+	/*float: menu da destra*/
+	margin: 0;
+	padding: 0px 4px  0px 1px; /* Distanza tra le singole voci top | right | bottom | left */
+}
+div#menu a {
+	color:#fff; /* Colore del testo */
+	text-align:center; /* Testo allineato al centro */
+	background:#D9BBA0; /* Colore dello sfondo */
+	padding:4px 50px; /* Distanza tra le singole voci */
+}
+div#menu a:hover {
+	background:#123456; /* Colore dello sfondo */
+}
+div#menu li ul {
+	display: none /*non mostrare liste discendenti*/
+}
+div#menu li:hover ul {
+	position: absolute; /*posizione fissata in base al genitore*/
+	display:block; 
+	font-size: smaller; /*testo più piccolo (per non andare a capo)*/
+	margin-top: 3px;
+	max-height: 500px;
+	width: 180px;
+	text-align: center;
+	background-color: #D9BBA0; 
+	padding-left: 0%;
+	padding-right: 0%;
+}
+div#menu li li a { 
+	flex-grow: 1;
+	padding:0px 20px 0px 20px; /* top | right | bottom | left */
+	margin-right: 0px;
+	margin-left: 0px;
+	justify-content: center;
+	justify-items: center;
+}
+div#menu li li a:hover {
+	background-color: inherit;
+	color:red; /* Colore dello sfondo */
+}

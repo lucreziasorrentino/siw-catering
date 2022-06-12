@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
-	<title>Demo</title>
+	<title>Indice</title>
 	<link th:href="@{/css/base.css}" rel="stylesheet" href="/static/css/base.css"/>
+	<link th:href="@{/css/menu.css}" rel="stylesheet" href="/static/css/menu.css"/>
 </head>
 
 <body>
 	<div id="container">
-		<div class="menu">
+		<div id="menu">
     		<ul><li>
 				<a href="#">Area riservata</a>
 					<ul>
@@ -38,7 +39,7 @@
         	</ul>
     	</div>
 	</div>
-	<img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/index%20image4.jpg?raw=true}" src="/static/img/index image4.jpg" class="imageIndex"></div>
+	<img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/index%20image4.jpg?raw=true}" src="/static/img/index image4.jpg" id="imageIndex"></div>
 	<p class="title">Benvenuto nel nostro servizio catering!</p>
 		<nav class="rowItems">
 			<nav><a href="#" th:href="@{/public/listaBuffet}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/buffet.jpg?raw=true}" src="/static/img/buffet.jpg" class="imageItemsLink" ></a></nav>
@@ -51,7 +52,7 @@
 			<p>Abbiamo buffet personalizzabili, visita i piatti che prepariamo per scoprire cosa desideri!</p></nav>
 		</nav>
 		<nav class="rowItems">
-			<nav><a href="#" th:href="@{/public/listaChef}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/chef.png?raw=true}" class="imageItemsLink" ></a></nav>
+			<nav><a href="#" th:href="@{/public/listaChef}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/chef.png?raw=true}" src="/static/img/chef.png" class="imageItemsLink" ></a></nav>
 			<nav><h3>I nostri chef</h3>
 			<p>Abbiamo chef disponibili a venire in contro a ogni richiesta, scopri la nostra squadra!</p></nav>
 		</nav>
@@ -72,10 +73,8 @@
 			<nav><h3>Richiedi preventivo</h3>
 			<p>Per richiedere un preventivo compila la <a href="#" th:href="@{/register}">registrazione</a>!</p></nav>
 		</nav>
-		<nav class="columnItems">
-			<div> hehe</div>
-			<div><a  href="#" th:href="@{/admin/chefForm}">Inserisci Chef</a></div>
-		</nav>
 </body>
-
+<footer>
+	<div>Contattaci!</div>
+</footer>
 </html>
