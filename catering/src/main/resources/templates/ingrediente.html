@@ -48,9 +48,9 @@
 			<div class="columnItems" th:text="*{nome}">qui-va-nome</div> 
 			<div class="columnItems" th:text="*{origine}">qui-va-origine</div>
 			<div class="columnItems" th:text="*{descrizione}">qui-va-descrizione</div>
-			<br>
-			<div class="columnItemsLink" a href="#" th:href="@{'/admin/modificaIngredienteForm' + '/' + ${ingrediente.id}}">Modifica Ingrediente</a></div>
-			<div class="columnItemsLink" a href="#" th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}">Elimina ingrediente</a></div>
+			<br><br>
+			<div class="columnItemsLink"><a href="#" th:href="@{'/admin/modificaIngredienteForm' + '/' + ${ingrediente.id}}">Modifica Ingrediente</a></div>
+			<div class="columnItemsLink"><a href="#" th:href="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}">Elimina ingrediente</a></div>
 	</div>
 	</div>
 </body>

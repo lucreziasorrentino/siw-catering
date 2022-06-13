@@ -1,28 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8" />
-	<title>Dettagli chef</title>
+		<meta charset="UTF-8" />
+		<title>Dettagli buffet</title>
+		<link th:href="@{/css/object.css}" rel="stylesheet" href="/static/css/object.css"/>
+		<link th:href="@{/css/menu.css}" rel="stylesheet" href="/static/css/menu.css"/>
 </head>
 <body>
-	<div>
-		<h4>Dettagli chef</h4>
-	<div>
-	<span th:text="${chef.nome}">Paolo</span>
-	<span th:text="${chef.cognome}">Rossi</span>
-	<span th:text="${chef.nazionalita}">Italia</span>
-	<div>
-			<ul>
-				<li th:each="buffet : ${chef.listaBuffet}">
-					<a th:href="@{'/public/buffet/'+${buffet.id}}"
-					th:text="${buffet.nome}">nome buffet</a>
-				</li>
-			</ul>
+		<div id="container">
+			<div id="menu">
+				<ul><li>
+					<a href="#">Area riservata</a>
+						<ul>
+							<li><a href="#" th:href="@{/admin/operazioniAmministratore}">Login amministratore</a><br>
+							<a href="#" th:href="@{/register}">Registrati</a><br>
+							<a th:href="@{/admin/chefForm}">Inserisci Chef</a><br>
+							<a th:href="@{/admin/piattoForm}">Inserisci piatto</a><br>
+							<a th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
+							<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" th:href="@{/register}">Registrati</a>
+					</li>
+						<li>
+						<a href="#" th:href="@{/public/listaBuffet}">I nostri buffet</a>
+					</li>
+					<li>
+						<a href="#" th:href="@{/public/piatti}">Piatti offerti</a>
+					</li>
+					<li>
+						<a href="#" th:href="@{/public/listaChef}">Il nostro team</a>
+					</li>
+					<li>
+						<a href="/" th:href="/">Home</a>
+					</li>
+				</ul>
+			</div>
+			<nav class="columnItems">
+				<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/pancake.jpg?raw=true}" src="/static/img/pancake.jpg"></nav>
+				<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/cake.jpg?raw=true}" src="/static/img/cake.jpg"></nav>
+				<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/macaron.jpg?raw=true}" src="/static/img/macaron.jpg"></nav>
+				<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/cake bears.jpg?raw=true}" src="/static/img/cake bears.jpg"></nav>
+			</nav>
+
+			<p class="title">Dettagli sullo chef selezionato:</p>
+			<div th:object=${ingrediente}>
+				<div class="columnItems" th:text="${chef.nome}">Nome</div> 
+				<div class="columnItems" th:text="${chef.cognome}">Cognome</div>
+				<div class="columnItems" th:text="${chef.nazionalita}">Nazionalita</div>
+				<div  class="columnItems">I buffet offerti dallo chef:
+					<ul>
+						<li th:each="buffet : ${chef.listaBuffet}">
+							<a  href="#" th:href="@{'/public/buffet/'+${buffet.id}}" th:text="${buffet.nome}">nome buffet</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+				<br><br>
+				<div class="columnItemsLink"><a href="#" th:href="@{'/admin/modificaChefForm' + '/' + ${chef.id}}">Modifica chef</a></div>
+				<div class="columnItemsLink"><a href="#" th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}">Elimina chef</a></div>
 		</div>
-	</div>
-	<div><a th:href="@{'/admin/modificaChefForm' + '/' + ${chef.id}}"//>Modifica chef</a></div>
-	<div><a th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}"/>Elimina chef</a></div>
-	</div>
-	<footer><a href="/">Home</a></footer>
+		</div>
 </body>
 </html>
