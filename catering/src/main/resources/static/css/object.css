@@ -11,7 +11,7 @@ div#container {
 	align-items: center;
 
 }
-nav.columnItems{ /*è figlio di container e genitore di rowItems*/
+nav.columnItems{ /*� figlio di container e genitore di rowItems*/
 	margin-bottom: 2%;
 	width: 500px;
 	flex-direction: row;
@@ -47,18 +47,26 @@ p.title{
 	text-align: center;
 }
 div.columnItemsLink{
-		background-color:  #D9D0C7;
-		margin-bottom: 2%;
-		width: 500px;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		border-radius: 0%;
-		display: flex;
+	background-color:  #D9D0C7;
+	margin-bottom: 2%;
+	width: 500px;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 0%;
+	display: flex;
 }
 a:hover{ /*da sistemareeee*/
-	background-color: red;
+	background-color: #F2D0BD;
 	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 	opacity: 0.5;
+}
+.listColumnItems{
+	background-color:  #D9D0C7;
+	margin-bottom: 0%;
+	margin-left: -150px;
+	align-items: center;
+	flex-direction: row;
+
 }
 

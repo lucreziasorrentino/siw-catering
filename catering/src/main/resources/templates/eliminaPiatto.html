@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Elimina Piatto</title>
+	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
 </head>
 <body>
 		<form method="POST" th:action="@{'/admin/deletePiatto' + '/' + ${piatto.id}}" th:object="${piatto}">

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Elimina Buffet</title>
+	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
 </head>
 <body>
 		<form method="POST" th:action="@{'/admin/deleteBuffet' + '/' + ${buffet.id}}" th:object="${buffet}">

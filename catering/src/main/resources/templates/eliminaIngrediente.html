@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Elimina Ingrediente</title>
+	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
 </head>
 <body>
 		<form method="POST" th:action="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}" th:object="${ingrediente}">

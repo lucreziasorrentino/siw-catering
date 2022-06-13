@@ -33,7 +33,7 @@
 						<a href="#" th:href="@{/public/listaChef}">Il nostro team</a>
 					</li>
 					<li>
-						<a href="/" th:href="/">Home</a>
+						<a href="/">Home</a>
 					</li>
 				</ul>
 			</div>
@@ -49,11 +49,14 @@
 				<div class="columnItems" th:text="${piatto.nome}">Pasta </div> 
 				<div class="columnItems" th:text="${piatto.descrizione}">al sugo</div>
 				<div class="columnItems">Ingredienti presenti nel piatto:
-				<ul>
-					<li th:each="ingrediente : ${piatto.ingredienti}">
-						<a  href="#" th:href="@{'/public/ingrediente/'+${ingrediente.id}}" th:text="${ingrediente.nome}">nome ingrediente</a>
-					</li>
-				</ul></div>
+					<div class="listColumnItems">
+						<ul>
+							<li th:each="ingrediente : ${piatto.ingredienti}">
+							<a  href="#" th:href="@{'/public/ingrediente/'+${ingrediente.id}}" th:text="${ingrediente.nome}">nome ingrediente</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 				<br><br>
 				<div class="columnItemsLink"><a href="#" th:href="@{'/admin/modificaPiattoForm' + '/' + ${piatto.id}}">Modifica piatto</a></div>
 				<div class="columnItemsLink"><a href="#" th:href="@{'/admin/deletePiatto' + '/' + ${piatto.id}}">Elimina piatto</a></div>

@@ -33,7 +33,7 @@
 					<a href="#" th:href="@{/public/listaChef}">Il nostro team</a>
 				</li>
 				<li>
-					<a href="/" th:href="/">Home</a>
+					<a href="/">Home</a>
 				</li>
 			</ul>
 		</div>
@@ -43,7 +43,7 @@
 			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/macaron.jpg?raw=true}" src="/static/img/macaron.jpg"></nav>
 			<nav class="rowItems" th:href="@{/public/piatti}"><img th:src="@{https://github.com/lucreziasorrentino/siw-catering/blob/main/catering/src/main/resources/static/img/cake bears.jpg?raw=true}" src="/static/img/cake bears.jpg"></nav>
 		</nav>
-		<p class="title">Ecco il piatto selezionato:</p>
+		<p class="title">Ingrediente selezionato:</p>
 		<div th:object=${ingrediente}>
 			<div class="columnItems" th:text="*{nome}">qui-va-nome</div> 
 			<div class="columnItems" th:text="*{origine}">qui-va-origine</div>

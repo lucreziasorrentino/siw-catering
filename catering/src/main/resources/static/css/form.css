@@ -1,0 +1,17 @@
+body {
+    font-family: serif;
+    color: #876240;
+    background-color: #D9BBA0;
+    padding-top: 5%;
+    padding-left: 10%;
+    float: left;
+ }
+ div{
+    padding-top: 3%;
+ }
+ a{
+   color: #876240;
+ }
+ a:hover{
+   color: rgba(138, 102, 58, 0.5);
+ }

@@ -33,7 +33,7 @@
 						<a href="#" th:href="@{/public/listaChef}">Il nostro team</a>
 					</li>
 					<li>
-						<a href="/" th:href="/">Home</a>
+						<a href="/">Home</a>
 					</li>
 				</ul>
 			</div>
@@ -49,12 +49,13 @@
 				<div class="columnItems" th:text="${chef.nome}">Nome</div> 
 				<div class="columnItems" th:text="${chef.cognome}">Cognome</div>
 				<div class="columnItems" th:text="${chef.nazionalita}">Nazionalita</div>
-				<div  class="columnItems">I buffet offerti dallo chef:
+				<div class="columnItems">I buffet offerti dallo chef:
+					<div class="listColumnItems">
 					<ul>
 						<li th:each="buffet : ${chef.listaBuffet}">
-							<a  href="#" th:href="@{'/public/buffet/'+${buffet.id}}" th:text="${buffet.nome}">nome buffet</a>
+							<a href="#" th:href="@{'/public/buffet/'+${buffet.id}}" th:text="${buffet.nome}">nome buffet</a>
 						</li>
-					</ul>
+					</ul></div>
 				</div>
 			</div>
 				<br><br>

@@ -47,7 +47,7 @@ nav.rowItems{
 	margin-bottom: 10px;
 }
 .imageItemsLink:hover{
-	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+	box-shadow: 0 0 2px 1px rgba(138, 102, 58, 0.5);
 	opacity: 0.5;
 }
 p.title{
@@ -55,4 +55,7 @@ p.title{
 	color: #A68572;
 	font-size: 50px;
 	text-align: center;
+}
+.linkp{
+	color: #A68572;
 }
