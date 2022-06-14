@@ -1,0 +1,16 @@
+com\example\catering\repository\PersonaRepository.class
+com\example\catering\service\IngredienteService.class
+com\example\catering\model\Persona.class
+com\example\catering\controller\PiattoController.class
+com\example\catering\repository\PiattoRepository.class
+com\example\catering\CateringApplication.class
+com\example\catering\service\PersonaService.class
+com\example\catering\controller\validator\PiattoValidator.class
+com\example\catering\model\Ingrediente.class
+com\example\catering\controller\validator\PersonaValidator.class
+com\example\catering\controller\PersonaController.class
+com\example\catering\model\Piatto.class
+com\example\catering\controller\validator\IngredienteValidator.class
+com\example\catering\controller\IngredienteController.class
+com\example\catering\repository\IngredienteRepository.class
+com\example\catering\service\PiattoService.class

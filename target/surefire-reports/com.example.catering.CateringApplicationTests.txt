@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.example.catering.CateringApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.044 s <<< FAILURE! - in com.example.catering.CateringApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: piatto, for columns: [org.hibernate.mapping.Column(ingredienti)]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: piatto, for columns: [org.hibernate.mapping.Column(ingredienti)]
+Caused by: org.hibernate.MappingException: Could not determine type for: java.util.List, at table: piatto, for columns: [org.hibernate.mapping.Column(ingredienti)]
+
