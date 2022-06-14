@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.catering.controller.validator.IngredienteValidator;
 import com.example.catering.model.Ingrediente;
-import com.example.catering.model.Ingrediente;
-import com.example.catering.model.Ingrediente;
-import com.example.catering.model.Piatto;
 import com.example.catering.service.IngredienteService;
-import com.example.catering.service.PiattoService;
 
 @Controller
 public class IngredienteController {

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,6 +36,7 @@ public class BuffetController {
 	
 	@PostMapping("/admin/buffetForm")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
+		this.buffetValidator.validate(buffet, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			buffetService.save(buffet);
 			model.addAttribute("buffet", buffet);
@@ -91,23 +91,21 @@ public class BuffetController {
 	@Transactional
 	@PostMapping("/admin/modifica/buffet/{id}")
 	public String modificaBuffet (@PathVariable Long id, @Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResults, Model model) {
-			Buffet vecchioBuffet = buffetService.findById(id);
-			if (!vecchioBuffet.equals(buffet))
-			this.buffetValidator.validate(buffet, bindingResults);
-		String nextPage;
-		if (!bindingResults.hasErrors()) {
-			vecchioBuffet.setId(buffet.getId());
-			vecchioBuffet.setNome(buffet.getNome());
-			vecchioBuffet.setDescrizione(buffet.getDescrizione());
-			vecchioBuffet.setChef(buffet.getChef());
-			vecchioBuffet.setPiatti(buffet.getPiatti());
-			this.buffetService.save(vecchioBuffet);
-			model.addAttribute("buffet", buffet);
-			nextPage = "buffet.html";      // presenta un pagina con la buffet appena salvata
-		} else {
-			model.addAttribute("piatti", piattoService.findAll());
-			model.addAttribute("listaChef", chefService.findAll());
-			nextPage = "modificaBuffetForm.html"; // ci sono errori, torna alla form iniziale
+			String nextPage;
+			if (!bindingResults.hasErrors()) {
+				Buffet vecchioBuffet = buffetService.findById(id);
+				vecchioBuffet.setId(buffet.getId());
+				vecchioBuffet.setNome(buffet.getNome());
+				vecchioBuffet.setDescrizione(buffet.getDescrizione());
+				vecchioBuffet.setChef(buffet.getChef());
+				vecchioBuffet.setPiatti(buffet.getPiatti());
+				this.buffetService.save(vecchioBuffet);
+				model.addAttribute("buffet", buffet);
+				nextPage = "buffet.html";      // presenta un pagina con la buffet appena salvata
+			} else {
+				model.addAttribute("piatti", piattoService.findAll());
+				model.addAttribute("listaChef", chefService.findAll());
+				nextPage = "modificaBuffetForm.html"; // ci sono errori, torna alla form iniziale
 		}
 		return nextPage;
 	}

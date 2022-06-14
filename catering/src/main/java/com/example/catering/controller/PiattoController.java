@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,9 +71,17 @@ public class PiattoController {
 	
 	@PostMapping("/admin/deletePiatto/{id}")
 	public String deletePiatto(@PathVariable("id") Long id, Model model) {
-		piattoService.deleteById(id);
+		String nextPage;
+		try {
+			this.piattoService.deleteById(id);
+			model.addAttribute("piatti", piattoService.findAll());
+			nextPage= "piatti.html";
+		}
+		catch (Exception e) {
+			nextPage = "errorChiave.html";
+		}
 		model.addAttribute("piatti", piattoService.findAll());
-		return "piatti.html";
+		return nextPage;
 	}
 	
 	
@@ -88,11 +95,9 @@ public class PiattoController {
 	@Transactional
 	@PostMapping("/admin/modifica/piatto/{id}")
 	public String modificaPiatto(@PathVariable Long id, @Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResults, Model model) {
-			Piatto vecchioPiatto = piattoService.findById(id);
-			if (!vecchioPiatto.equals(piatto))
-				this.piattoValidator.validate(piatto, bindingResults);
 		String nextPage;
 		if(!bindingResults.hasErrors()) {
+			Piatto vecchioPiatto = piattoService.findById(id);
 			vecchioPiatto.setId(piatto.getId());
 			vecchioPiatto.setNome(piatto.getNome());
 			vecchioPiatto.setDescrizione(piatto.getDescrizione());

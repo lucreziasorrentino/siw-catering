@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Dettagli buffet</title>
-	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
+<meta charset="UTF-8" />
+<title>Dettagli buffet</title>
+<link th:href="@{/css/form.css}" rel="stylesheet"
+	href="/static/css/form.css" />
 </head>
 <body>
-<form th:action="@{/admin/buffetForm}" method="post" th:object="${buffet}">
-	<div>
-		nome: <input type="text" th:field="*{nome}"/>
-		<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
-	</div>
-	<div>
-		descrizione: <input type="text" th:field="*{descrizione}"/>
-		<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
-	</div>
-	<div th:each="piatto: ${piatti}"> seleziona i piatti da inserire nel buffet:
-		<input type="checkbox" id="${piatti}" th:field="*{piatti}" name="piatto" th:value="${piatto.id}">
-		<label for="${piatti}" th:text="${piatto.nome}">Nome piatto</label>
-	</div>
-	<div>
-		<select th:field="*{chef}">
-									<option value="">---</option>
-									<option th:each="c : ${listaChef}" th:value="${c.id}" th:text="${c}">Carlo Cracco
-									</option>
-								</select>
-	</div>
-	<!-- <div>
+	<form th:action="@{/admin/buffetForm}" method="post"
+		th:object="${buffet}">
+		<div>
+			nome: <input type="text" th:field="*{nome}" />
+			<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+		</div>
+		<div>
+			descrizione: <input type="text" th:field="*{descrizione}" />
+			<div th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}"></div>
+		</div>
+		<div th:each="piatto: ${piatti}">
+			seleziona i piatti da inserire nel buffet: <input type="checkbox"
+				id="${piatti}" th:field="*{piatti}" name="piatto"
+				th:value="${piatto.id}"> <label for="${piatti}"
+				th:text="${piatto.nome}">Nome piatto</label>
+		</div>
+		<div>
+			<select th:field="*{chef}">
+				<option value="">---</option>
+				<option th:each="c : ${listaChef}" th:value="${c.id}" th:text="${c}">Carlo
+					Cracco</option>
+			</select>
+		</div>
+		<!-- <div>
 		<a th:href="@{/piattoForm}"/>Inserisci piatto</a>
 	</div> -->
-	<div><button type="submit">Conferma</button></div>
-</form>
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
 </body>
 <footer>
 	<a href="/">Home</a>

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +29,7 @@ public class ChefController {
 	
 	@PostMapping("/admin/chefForm")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
+		this.chefValidator.validate(chef, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			chefService.save(chef);
 			model.addAttribute("chef", chef);
@@ -80,19 +80,16 @@ public class ChefController {
 	@Transactional
 	@PostMapping("/admin/modifica/chef/{id}")
 	public String modificaChef(@PathVariable Long id, @Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
-		Chef vecchioChef = chefService.findById(id);
-		if (! vecchioChef.equals(chef))
-			this.chefValidator.validate(chef, bindingResults);
-
 		String nextPage;
 		if(!bindingResults.hasErrors()) {
+			Chef vecchioChef = chefService.findById(id);
 			vecchioChef.setId(chef.getId());
 			vecchioChef.setNome(chef.getNome());
 			vecchioChef.setCognome(chef.getCognome());
 			vecchioChef.setNazionalita(chef.getNazionalita());
-
 			this.chefService.save(vecchioChef);
 			model.addAttribute("chef", chef);
+			model.addAttribute("chef", vecchioChef);
 			nextPage = "chef.html";
 		} else {
 			nextPage = "modificaChefForm.html";

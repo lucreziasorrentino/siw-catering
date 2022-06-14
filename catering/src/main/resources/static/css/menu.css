@@ -1,14 +1,17 @@
 body {
-    font-family: serif;
     color: #876240;
  }
 div#menu ul
 {	
+	text-transform:uppercase;
+	font-family: 'Tahoma', sans-serif;
+	font-size: small;
 	position: fixed; /*rimane anche se scorri la pagina in gi�*/
 	margin: 0;
 	padding: 0;
 	list-style-type: none; /* Stile dei punti della lista */
-	right: 1%; /*� a destra*/
+	right: 1.5%; /*da destra*/
+	display: block;
 }
 div#menu li
 {
@@ -22,6 +25,7 @@ div#menu a {
 	text-align:center; /* Testo allineato al centro */
 	background:#D9BBA0; /* Colore dello sfondo */
 	padding:4px 50px; /* Distanza tra le singole voci */
+	text-decoration: none; /*togli sottolineatura*/
 }
 div#menu a:hover {
 	background: #A68572; /* Colore dello sfondo */
@@ -32,9 +36,9 @@ div#menu li ul {
 div#menu li:hover ul {
 	position: absolute; /*posizione fissata in base al genitore*/
 	display:block; 
-	font-size: smaller; /*testo pi� piccolo (per non andare a capo)*/
+	font-size: smaller; /*testo piu piccolo (per non andare a capo)*/
 	margin-top: 3px;
-	max-height: 500px;
+	max-height: 550px;
 	width: 180px;
 	text-align: center;
 	background-color: #D9BBA0; 

@@ -1,78 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html"
 	xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title>Modifica Chef</title>
-	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
+<title>Modifica Chef</title>
+<link th:href="@{/css/form.css}" rel="stylesheet"
+	href="/static/css/form.css" />
 </head>
 <header>
 	<h1 class="header-title">Modifica questo chef</h1>
 </header>
-
 <body>
 	<div>
-
 		<div>
-			<!--/*@thymesVar id="chef" type="it.uniroma3.siw.siwcateringservice.model.Chef"*/-->
-			<form method="POST" th:action="@{/admin/modifica/chef/{id}(id=${chef.id})}" th:object="${chef}">
+			<form method="POST"
+				th:action="@{/admin/modifica/chef/{id}(id=${chef.id})}"
+				th:object="${chef}">
 				<table>
 					<tbody>
 						<tr>
 							<td>Nome:</td>
-							<td>
-								<label>
-									<input th:field="*{nome}" th:value="*{nome}" type="text" />
-								</label>
-							</td>
-							<td><span class="error-text" th:errors="*{nome}"
-									th:if="${#fields.hasErrors('nome')}">errore nome</span></td>
+							<td><label> <input th:field="*{nome}"
+									th:value="*{nome}" type="text" />
+							</label></td>
+							<td><span th:errors="*{nome}"
+								th:if="${#fields.hasErrors('nome')}">errore nome</span></td>
 						</tr>
 						<tr>
 							<td>Cognome:</td>
-							<td>
-								<label>
-									<input th:field="*{cognome}" th:value="*{cognome}" type="text" />
-								</label>
-							</td>
-							<td><span class="error-text" th:errors="*{cognome}"
-									th:if="${#fields.hasErrors('cognome')}">errore cognome</span></td>
+							<td><label> <input th:field="*{cognome}"
+									th:value="*{cognome}" type="text" />
+							</label></td>
+							<td><span th:errors="*{cognome}"
+								th:if="${#fields.hasErrors('cognome')}">errore cognome</span></td>
 						</tr>
 						<tr>
 							<td>Nazionalita:</td>
-							<td><label>
-									<input th:field="*{nazionalita}" th:value="*{nazionalita}" type="text" />
-								</label>
-							</td>
-							<td><span class="error-text" th:errors="*{nazionalita}"
-									th:if="${#fields.hasErrors('nazionalita')}">errore nazionalita</span></td>
+							<td><label> <input th:field="*{nazionalita}"
+									th:value="*{nazionalita}" type="text" />
+							</label></td>
+							<td><span th:errors="*{nazionalita}"
+								th:if="${#fields.hasErrors('nazionalita')}">errore
+									nazionalita</span></td>
 						</tr>
 					</tbody>
 				</table>
-
 				<table>
 					<tbody>
 						<tr>
 							<td>Foto</td>
-							<td>
-								<input type="file" />
-							</td>
+							<td><input type="file" /></td>
 
 						</tr>
 					</tbody>
 				</table>
 				<div>
-					<span><button class="button button1" type="submit">Confirm</button></span>
+					<span><button type="submit">Confirm</button></span>
+				</div>
+				<div>
+					<a href="/">Cancel</a>
 				</div>
 			</form>
 		</div>
 	</div>
 </body>
-<footer>
-	<div>
-		
-	</div>
-</footer>
-
-
 </html>

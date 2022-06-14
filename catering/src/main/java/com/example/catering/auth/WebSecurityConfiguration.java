@@ -28,7 +28,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
 		http.authorizeRequests() // authorization paragraph: qui definiamo chi può accedere a cosa
-				.antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/images/**", "/public/**").permitAll() 	//chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
+				.antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/img/**", "/public/**").permitAll() 	//chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
 				.antMatchers(HttpMethod.POST, "/login", "/register").permitAll() 											// chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
 				.antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(Credentials.ADMIN_ROLE) 							// solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
 				.antMatchers(HttpMethod.POST, "/admin/**").hasAnyAuthority(Credentials.ADMIN_ROLE)

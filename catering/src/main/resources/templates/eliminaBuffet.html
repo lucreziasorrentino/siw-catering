@@ -5,10 +5,10 @@
 	<title>Elimina Buffet</title>
 	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
 </head>
-<body>
+<body class="elimina">
 		<form method="POST" th:action="@{'/admin/deleteBuffet' + '/' + ${buffet.id}}" th:object="${buffet}">
-							<button class="button button1" type="submit">Confirm</button>
+							<button type="submit">Confirm</button>
 		</form>
-		<a href="error.html" th:href="@{'/public/listaBuffet'}" th:text="Cancel">Torna indietro</a>
+		<a href="#" th:href="@{'/public/listaBuffet'}" th:text="Cancel">Torna indietro</a>
 </body>
 </html>

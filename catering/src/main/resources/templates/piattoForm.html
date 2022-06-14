@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Dettagli piatto</title>
-	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
+<meta charset="UTF-8" />
+<title>Dettagli piatto</title>
+<link th:href="@{/css/form.css}" rel="stylesheet"
+	href="/static/css/form.css" />
 </head>
 <body>
-<form th:action="@{/admin/piattoForm}" method="post" th:object="${piatto}">
-	<div>
-		nome: <input type="text" th:field="*{nome}"/>
-		<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
-	</div>
-	<div>
-		descrizione: <input type="text" th:field="*{descrizione}"/>
-		<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
-	</div>
-	<div th:each="ingrediente: ${ingredienti}"> seleziona gli ingredienti da inserire nel piatto:
-		<input type="checkbox" id="${ingredienti}" th:field="*{ingredienti}" name="ingrediente" th:value="${ingrediente.id}">
-		<label for="${ingredienti}" th:text="${ingrediente.nome}">Nome piatto</label>
-	</div>
-	<div><button type="submit">Conferma</button></div>
-</form>
+	<form th:action="@{/admin/piattoForm}" method="post"
+		th:object="${piatto}">
+		<div>
+			nome: <input type="text" th:field="*{nome}" />
+			<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+		</div>
+		<div>
+			descrizione: <input type="text" th:field="*{descrizione}" />
+			<div th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}"></div>
+		</div>
+		<div th:each="ingrediente: ${ingredienti}">
+			seleziona gli ingredienti da inserire nel piatto: <input
+				type="checkbox" id="${ingredienti}" th:field="*{ingredienti}"
+				name="ingrediente" th:value="${ingrediente.id}"> <label
+				for="${ingredienti}" th:text="${ingrediente.nome}">Nome
+				piatto</label>
+		</div>
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
 </body>
 </html>

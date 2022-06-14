@@ -50,12 +50,10 @@ public class AuthController {
 			nextPage = "signUpForm.html";
 		}
 		return nextPage;
-
 	}
 
 	@GetMapping("/default")
 	public String defaultAfterLogin(Model model) {
-
 		UserDetails adminDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Credentials credentials = credentialsService.getCredentials(adminDetails.getUsername());
 		if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {

@@ -1,7 +1,7 @@
 
 
 body {
-    font-family: serif;
+    font-family:'Verdana', sans-serif;
     color: #876240;
  }
 /********************************************Container and items**************************************************/
@@ -58,4 +58,27 @@ p.title{
 }
 .linkp{
 	color: #A68572;
+}
+footer{
+	font-family: serif;
+	background-color:  rgba(130, 99, 81, 0.7);
+	align-content: center;
+	bottom: 0;
+    width: 100%;
+}
+.footer{
+	height: 100px;
+    margin: auto;
+    width: 90%;
+    text-align:center;
+    padding:10px;
+    color: #876240;
+    padding-top: 15px;
+}
+a.footer{
+	color: rgba(138, 102, 58, 1);
+}
+a:hover.footer {
+	color: rgba(138, 102, 58, 0.5);
+	background-color: transparent;
 }
