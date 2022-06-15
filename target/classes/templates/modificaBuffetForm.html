@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Modifica Buffet</title>
+<link th:href="@{/css/form.css}" rel="stylesheet"
+	href="/static/css/form.css" />
+</head>
+<header>
+	<h1>Modifica questo buffet</h1>
+</header>
+
+<body>
+	<div>
+		<div>
+			<form method="POST"
+				th:action="@{/admin/modifica/buffet/{id}(id=${buffet.id})}"
+				th:object="${buffet}">
+				<table>
+					<tbody>
+						<tr>
+							<td>Nome:</td>
+							<td><label> <input th:field="*{nome}" type="text"
+									th:value="*{nome}" />
+							</label></td>
+							<td><span th:errors="*{nome}"
+								th:if="${#fields.hasErrors('nome')}"> errore nome </span></td>
+						</tr>
+						<tr>
+							<td>Descrizione:</td>
+							<td><label> <input th:field="*{descrizione}"
+									type="text" th:value="*{descrizione}" />
+							</label></td>
+							<td><span th:errors="*{descrizione}"
+								th:if="${#fields.hasErrors('descrizione')}"> errore
+									descrizione</span></td>
+						</tr>
+						<tr>
+							<td>Chef:</td>
+							<td><select aria-label="chef" th:field="*{chef}">
+									<option value="">---</option>
+									<option th:each="c : ${listaChef}" th:value="${c.id}"
+										th:text="${c}">Nome Cognome</option>
+							</select></td>
+
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<fieldset>
+						<legend>Seleziona piatti</legend>
+						<div th:each="piatto: ${piatti}">
+							<input type="checkbox" id="${piatti}" th:field="*{piatti}"
+								nome="piatto" th:value="${piatto.id}"> <label
+								for="${piatti}" th:text="${piatto.nome}">Nome piatto</label>
+						</div>
+					</fieldset>
+				</div>
+				<div>
+					<span><button type="submit">Confirm</button></span>
+				</div>
+				<div>
+					<a href="/">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

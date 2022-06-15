@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Elimina Ingrediente</title>
+<link th:href="@{/css/form.css}" rel="stylesheet"
+	href="/static/css/form.css" />
+</head>
+<body class="elimina">
+	<form method="POST"
+		th:action="@{'/admin/deleteIngrediente' + '/' + ${ingrediente.id}}"
+		th:object="${ingrediente}">
+		<button type="submit">Confirm</button>
+	</form>
+	<a href="#" th:href="@{'/public/piatti'}" th:text="Cancel">Torna
+		indietro</a>
+</body>
+</html>

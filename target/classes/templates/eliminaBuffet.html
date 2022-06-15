@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Elimina Buffet</title>
+	<link th:href="@{/css/form.css}" rel="stylesheet" href="/static/css/form.css"/>
+</head>
+<body class="elimina">
+		<form method="POST" th:action="@{'/admin/deleteBuffet' + '/' + ${buffet.id}}" th:object="${buffet}">
+							<button type="submit">Confirm</button>
+		</form>
+		<a href="#" th:href="@{'/public/listaBuffet'}" th:text="Cancel">Torna indietro</a>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Elenco buffet</title>
+<link th:href="@{/css/object.css}" rel="stylesheet"
+	href="/static/css/object.css" />
+<link th:href="@{/css/menu.css}" rel="stylesheet"
+	href="/static/css/menu.css" />
+</head>
+<body>
+	<div id="container">
+		<div id="menu">
+			<ul>
+				<li><a href="#">Area riservata</a>
+					<ul>
+						<li><a href="#" th:href="@{/login}">Login amministratore</a><br>
+							<a href="#" th:href="@{/register}">Registrati</a><br> <a
+							th:href="@{/admin/chefForm}">Inserisci Chef</a><br> <a
+							th:href="@{/admin/piattoForm}">Inserisci piatto</a><br> <a
+							th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
+							<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a></li>
+					</ul></li>
+				<li><a href="#" th:href="@{/register}">Registrati</a></li>
+				<li><a href="#" th:href="@{/public/listaBuffet}">I nostri
+						buffet</a></li>
+				<li><a href="#" th:href="@{/public/piatti}">Piatti offerti</a>
+				</li>
+				<li><a href="#" th:href="@{/public/listaChef}">Il nostro
+						team</a></li>
+				<li><a href="/">Home</a></li>
+			</ul>
+		</div>
+		<nav class="columnItems">
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/pancake.jpg}"
+					src="/static/img/pancake.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/cake.jpg}"
+					src="/static/img/cake.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/macaron.jpg}"
+					src="/static/img/macaron.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/cake bears.jpg}"
+					src="/static/img/cake bears.jpg">
+			</nav>
+		</nav>
+
+		<p class="title">I nostri piatti:</p>
+		<div>
+			<div class="columnItems">
+				<ul>
+					<li th:each="piatto : ${piatti}"><a href="piatto.html"
+						th:href="@{'/public/piatto' + '/' + ${piatto.id}}"
+						th:text="${piatto.nome} + ' ' + ${piatto.descrizione}">Pasta
+							Al Sugo</a><br>
+						<div th:text="${piatto.ingredienti}">ingrediente1,
+							ingrediente2</div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

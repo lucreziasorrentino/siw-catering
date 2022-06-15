@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Ingredienti: pagina che non interessa visualizzare,
+	quindi non completamente sviluppata</title>
+</head>
+<body>
+	<h4>Elenco ingredienti</h4>
+	<ul>
+		<li th:each="ingrediente : ${ingredienti}"><a
+			href="ingrediente.html"
+			th:href="@{'/public/ingrediente' + '/' + ${ingrediente.id}}"
+			th:text="${ingrediente.nome} + ' ' + ${ingrediente.descrizione} + ' ' + ${ingrediente.origine}">Capperi
+				buoni Ventotenesi</a></li>
+	</ul>
+</body>
+<footer>
+	<a href="/">Home</a>
+</footer>
+</html>

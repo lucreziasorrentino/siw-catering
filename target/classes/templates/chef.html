@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Dettagli chef</title>
+<link th:href="@{/css/object.css}" rel="stylesheet"
+	href="/static/css/object.css" />
+<link th:href="@{/css/menu.css}" rel="stylesheet"
+	href="/static/css/menu.css" />
+</head>
+<body>
+	<div id="container">
+		<div id="menu">
+			<ul>
+				<li><a href="#">Area riservata</a>
+					<ul>
+						<li><a href="#" th:href="@{/login}">Login amministratore</a><br>
+							<a href="#" th:href="@{/register}">Registrati</a><br> <a
+							th:href="@{/admin/chefForm}">Inserisci Chef</a><br> <a
+							th:href="@{/admin/piattoForm}">Inserisci piatto</a><br> <a
+							th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
+							<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a></li>
+					</ul></li>
+				<li><a href="#" th:href="@{/register}">Registrati</a></li>
+				<li><a href="#" th:href="@{/public/listaBuffet}">I nostri
+						buffet</a></li>
+				<li><a href="#" th:href="@{/public/piatti}">Piatti offerti</a>
+				</li>
+				<li><a href="#" th:href="@{/public/listaChef}">Il nostro
+						team</a></li>
+				<li><a href="/">Home</a></li>
+			</ul>
+		</div>
+		<nav class="columnItems">
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/pancake.jpg}"
+					src="/static/img/pancake.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/cake.jpg}"
+					src="/static/img/cake.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/macaron.jpg}"
+					src="/static/img/macaron.jpg">
+			</nav>
+			<nav class="rowItems" th:href="@{/public/piatti}">
+				<img
+					th:src="@{/img/cake bears.jpg}"
+					src="/static/img/cake bears.jpg">
+			</nav>
+		</nav>
+
+		<p class="title">Dettagli sullo chef selezionato:</p>
+		<div th:object=${chef}>
+			<div class="columnItems" th:text="${chef.nome}">Nome</div>
+			<div class="columnItems" th:text="${chef.cognome}">Cognome</div>
+			<div class="columnItems" th:text="${chef.nazionalita}">Nazionalita</div>
+			<div class="columnItems">
+				I buffet offerti dallo chef:
+				<div class="listColumnItems">
+					<ul>
+						<li th:each="buffet : ${chef.listaBuffet}"><a href="#"
+							th:href="@{'/public/buffet/'+${buffet.id}}"
+							th:text="${buffet.nome}">nome buffet</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="columnItemsLink">
+			<a href="#" th:href="@{'/admin/modificaChefForm' + '/' + ${chef.id}}">Modifica
+				chef</a>
+		</div>
+		<div class="columnItemsLink">
+			<a href="#" th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}">Elimina
+				chef</a>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
