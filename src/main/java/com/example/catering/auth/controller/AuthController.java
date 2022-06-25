@@ -44,7 +44,7 @@ public class AuthController {
 		if (!bindingResult.hasErrors()) {
 			//credentials.setRole("DEFAULT"); //decommentare se si vuole bloccare la registrazione di nuovi admin, chi si registra non potrà essere un admin
 			this.credentialsService.saveCredentials(credentials);
-			nextPage = "loginForm.html";
+			nextPage = "index.html";
 		} else {
 			model.addAttribute("credentials", credentials);
 			nextPage = "signUpForm.html";
