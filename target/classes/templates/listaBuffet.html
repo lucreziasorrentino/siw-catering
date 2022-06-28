@@ -62,7 +62,8 @@
 						th:href="@{'/public/buffet' + '/' + ${buffet.id}}"
 						th:text="${buffet.nome} + ': ' + ${buffet.descrizione}">Primo
 							buffet Vegetariano</a><br>
-						<div th:text="${buffet.piatti}">piatto1, piatto2</div></li>
+						<span th:each="piatto,iter : ${buffet.piatti}" th:unless="${iter.last}" th:text="${piatto.nome} + ', '">piatto1, piatto2</span>
+						<span th:each="piatto,iter : ${buffet.piatti}" th:if="${iter.last}" th:text="${piatto.nome}">piatto1, piatto2</span></li>
 				</ul>
 			</div>
 		</div>

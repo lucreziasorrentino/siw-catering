@@ -62,8 +62,8 @@
 						th:href="@{'/public/piatto' + '/' + ${piatto.id}}"
 						th:text="${piatto.nome} + ' ' + ${piatto.descrizione}">Pasta
 							Al Sugo</a><br>
-						<div th:text="${piatto.ingredienti}">ingrediente1,
-							ingrediente2</div></li>
+						<span th:each="ingrediente,iter : ${piatto.ingredienti}" th:unless="${iter.last}" th:text="${ingrediente.nome} + ', '">ingrediente1, ingrediente2</span>
+						<span th:each="ingrediente,iter : ${piatto.ingredienti}" th:if="${iter.last}" th:text="${ingrediente.nome}">ingrediente</span></li>
 				</ul>
 			</div>
 		</div>

@@ -45,6 +45,7 @@ p.title{
 	color: #A68572;
 	font-size: 50px;
 	text-align: center;
+	display: flex;
 }
 div.columnItemsLink{
 	background-color:  #D9D0C7;
