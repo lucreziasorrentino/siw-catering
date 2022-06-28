@@ -29,7 +29,7 @@ public class IngredienteController {
 	
 	@PostMapping("/admin/ingredienteForm")
 	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
-		this.ingredienteValidator.validate(ingrediente,bindingResult);
+		this.ingredienteValidator.validate(ingrediente, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			ingredienteService.save(ingrediente);
 			model.addAttribute("ingrediente", ingrediente);

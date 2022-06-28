@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.catering.auth.models.Credentials;
 import com.example.catering.auth.service.CredentialsService;
+import com.example.catering.service.ChefService;
 
 import javax.validation.Valid;
 
@@ -21,7 +22,16 @@ public class AuthController {
 
 	@Autowired
 	private CredentialsService credentialsService;
+	
+	@Autowired
+	private ChefService chefService;
 
+	@GetMapping("/")
+	public String showIndex (Model model) {
+		model.addAttribute("size", this.chefService.findAll().size());
+		return "index";
+	}
+	
 	@GetMapping("/login")
 	public String showLoginForm (Model model) {
 		return "loginForm";

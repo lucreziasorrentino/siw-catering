@@ -42,6 +42,8 @@ public class BuffetController {
 			model.addAttribute("buffet", buffet);
 			return "buffet.html";
 		}
+		model.addAttribute("listaChef", this.chefService.findAll());
+		model.addAttribute("piatti", this.piattoService.findAll());
 		return "buffetForm.html";
 	}
 	

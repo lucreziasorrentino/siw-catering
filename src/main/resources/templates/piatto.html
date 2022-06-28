@@ -14,12 +14,13 @@
 			<ul>
 				<li><a href="#">Area riservata</a>
 					<ul>
-						<li><a href="#" th:href="@{/login}">Login amministratore</a><br>
-							<a href="#" th:href="@{/register}">Registrati</a><br> <a
-							th:href="@{/admin/chefForm}">Inserisci Chef</a><br> <a
-							th:href="@{/admin/piattoForm}">Inserisci piatto</a><br> <a
-							th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
-							<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a></li>
+						<li><a href="#" sec:authorize="!isFullyAuthenticated()" th:href="@{/login}"> Login </a><br>
+						<a href="#" th:href="@{/register}">Registrati</a><br>
+						<a th:href="@{/admin/chefForm}">Inserisci Chef</a><br>
+						<a th:href="@{/admin/piattoForm}">Inserisci piatto</a><br>
+						<a th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
+						<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a>
+						<a href="#" sec:authorize="isFullyAuthenticated()" th:href="@{/logout}">Logout</a></li>
 					</ul></li>
 				<li><a href="#" th:href="@{/register}">Registrati</a></li>
 				<li><a href="#" th:href="@{/public/listaBuffet}">I nostri

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 	<meta charset="UTF-8" />
 	<title>Indice</title>
@@ -13,13 +14,13 @@
     		<ul><li>
 				<a href="#">Area riservata</a>
 					<ul><li>
-						<a href="#" th:href="@{/login}">Login amministratore</a><br>
+						<a href="#" sec:authorize="!isFullyAuthenticated()" th:href="@{/login}"> Login </a><br>
 						<a href="#" th:href="@{/register}">Registrati</a><br>
 						<a th:href="@{/admin/chefForm}">Inserisci Chef</a><br>
 						<a th:href="@{/admin/piattoForm}">Inserisci piatto</a><br>
 						<a th:href="@{/admin/buffetForm}">Inserisci nuovo buffet</a><br>
 						<a th:href="@{/admin/ingredienteForm}">Inserisci Ingrediente</a>
-						<a th:href="@{/logout}">Logout</a></li>
+						<a href="#" sec:authorize="isFullyAuthenticated()" th:href="@{/logout}">Logout</a></li>
 					</ul>
 				</li>
 				<li>
@@ -40,7 +41,7 @@
         	</ul>
     	</div>
 	</div>
-	<img th:src="@{/img/index image4.jpg}" src="/static/img/index image4.jpg" id="imageIndex"></div>
+	<img th:src="@{/img/index image4.jpg}" src="/static/img/index image4.jpg" id="imageIndex">
 	<p class="title">Benvenuto nel nostro servizio catering!</p>
 		<nav class="rowItems">
 			<nav><a href="#" th:href="@{/public/listaBuffet}"><img th:src="@{/img/buffet.jpg}" src="/static/img/buffet.jpg" class="imageItemsLink" ></a></nav>

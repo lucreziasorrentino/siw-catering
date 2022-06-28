@@ -36,7 +36,7 @@ public class IngredienteService {
 	}
 	
 	public boolean alreadyExists(Ingrediente ingrediente) {
-		return pr.existsByNomeAndOrigineAndDescrizione(ingrediente.getNome(), ingrediente.getDescrizione(), ingrediente.getOrigine());
+		return pr.existsByNomeAndOrigineAndDescrizione(ingrediente.getNome(), ingrediente.getOrigine(), ingrediente.getDescrizione());
 	}
 	
 	
